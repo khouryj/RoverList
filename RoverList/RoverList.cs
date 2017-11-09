@@ -38,26 +38,46 @@ namespace RoverList
 
         public override void Add(int Position, object data)
         {
+            Node temp;
             int counter = 0;
-            while (counter < Position)
+            tail = head;
+            while (counter < Position-1)
             {
-
+                tail = tail.Next;
+                counter++;
             }
+            temp = tail.Next;
+            tail.Next = new Node(data);
+            tail = tail.Next;
+            tail.Next = temp;
+            count++;
         }
 
         public override void Clear()
         {
-            throw new NotImplementedException();
+            head = null;
+            tail = head;
+            count = 0;
         }
 
         public override Node ElementAt(int Position)
         {
-            throw new NotImplementedException();
+            int counter = 0;
+            while (counter < Position-1)
+            {
+                
+            }
         }
 
         public override void ListNodes()
         {
-            while (tail.Next)
+            Node current = head;
+            while (current.Next != null)
+            {
+                Console.WriteLine(current.Data);
+                current = current.Next;
+            }
+            Console.WriteLine(current.Data);
         }
 
         public override bool RemoveAt(int Position)
