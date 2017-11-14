@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace RoverList
 {
+    //Joseph Khoury, Andrew Spaziani, Bryant White
     class Program
     {
         static void Main(string[] args)
@@ -37,7 +38,6 @@ namespace RoverList
 
             // TODO:  Remove every 3rd word
 
-            
             
             // TODO:  Print out the list
 

@@ -56,6 +56,7 @@ namespace RoverList
         public override void Clear()
         {
             head = null;
+            tail = null;
             tail = head;
             count = 0;
         }
@@ -63,10 +64,14 @@ namespace RoverList
         public override Node ElementAt(int Position)
         {
             int counter = 0;
+            Node current = head;
             while (counter < Position-1)
             {
-                
+                current = current.Next;
+                counter++;
             }
+            return current;
+
         }
 
         public override void ListNodes()
