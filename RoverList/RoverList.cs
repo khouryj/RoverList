@@ -65,7 +65,11 @@ namespace RoverList
         {
             int counter = 0;
             Node current = head;
-            while (counter < Position-1)
+            if (Position > Count || Position < 0)
+            {
+                return new Node(null);
+            }
+            while (counter < Position)
             {
                 current = current.Next;
                 counter++;
@@ -87,7 +91,31 @@ namespace RoverList
 
         public override bool RemoveAt(int Position)
         {
-            throw new NotImplementedException();
+            Node current = head;
+            Node temp;
+            int counter = 0;
+            if (Position < 0 || Position > Count)
+            {
+                return false;
+            }
+            if (Position == 0)
+            {
+                temp = head.Next;
+                head = null;
+                head = temp;
+                count--;
+                return true;
+            }
+            while (counter < Position-1)
+            {
+                current = current.Next;
+                counter++;
+            }
+            temp = current.Next.Next;
+            current.Next = null;
+            current.Next = temp;
+            count--;
+            return true;
         }
     }
 }
