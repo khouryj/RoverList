@@ -41,15 +41,24 @@ namespace RoverList
             Node temp;
             int counter = 0;
             tail = head;
-            while (counter < Position-1)
+            if (Position == 0)
             {
-                tail = tail.Next;
-                counter++;
+                temp = head;
+                head = new Node(data);
+                head.Next = temp;
             }
-            temp = tail.Next;
-            tail.Next = new Node(data);
-            tail = tail.Next;
-            tail.Next = temp;
+            else
+            {
+                while (counter < Position - 1)
+                {
+                    tail = tail.Next;
+                    counter++;
+                }
+                temp = tail.Next;
+                tail.Next = new Node(data);
+                tail = tail.Next;
+                tail.Next = temp;
+            }
             count++;
         }
 
@@ -81,12 +90,15 @@ namespace RoverList
         public override void ListNodes()
         {
             Node current = head;
-            while (current.Next != null)
+            if (head != null)
             {
+                while (current.Next != null)
+                {
+                    Console.WriteLine(current.Data);
+                    current = current.Next;
+                }
                 Console.WriteLine(current.Data);
-                current = current.Next;
             }
-            Console.WriteLine(current.Data);
         }
 
         public override bool RemoveAt(int Position)
