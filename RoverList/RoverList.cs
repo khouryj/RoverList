@@ -124,7 +124,6 @@ namespace RoverList
                 counter++;
             }
             temp = current.Next.Next;
-            current.Next = null;
             current.Next = temp;
             count--;
             return true;

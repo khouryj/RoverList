@@ -91,7 +91,9 @@ namespace RoverList
                 if (rList.ElementAt(i).Data.ToString().Length % 2 != 0)
                 {
                     rList.RemoveAt(i);
+                    i--;
                 }
+
             }
             rList.ListNodes();
             Console.WriteLine();
@@ -102,6 +104,6 @@ namespace RoverList
             rList.Clear();
             rList.ListNodes();
 
-        }
+         }
     }
 }
